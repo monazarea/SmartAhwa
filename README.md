@@ -4,14 +4,6 @@ A Flutter application for a smart coffee shop manager, designed to streamline or
 
 ---
 
-## 📸 Screenshots
-
-| Pending Orders Dashboard | Add New Order Screen | Daily Report Screen |
-|:------------------------:|:--------------------:|:-------------------:|
-| ![Dashboard Screen](./assets/dashboard.png) | ![Add Order Screen](./assets/add_order.png) | ![Report Screen](./assets/report.png) |
-
----
-
 ## ✨ Features
 
 * **Order Management:** Quickly add new orders with the customer's name and drink type.
@@ -38,6 +30,14 @@ This architecture rigorously implements all five **SOLID principles**:
 * **Liskov Substitution Principle (LSP):** This principle is upheld by the design. For example, an instance of `DailySalesReport` could be used anywhere a base `Report` object is expected without altering the program's correctness.
 * **Interface Segregation Principle (ISP):** This is achieved by defining focused contracts for our services: `IOrderService` and `IReportGenerator`. Components like the `AhwaCubit` depend on these small, specific interfaces rather than a large, monolithic class.
 * **Dependency Inversion Principle (DIP):** High-level modules like `AhwaCubit` depend on **abstractions** (`IOrderService`, `IReportGenerator`), not on concrete implementations. This is achieved via **Dependency Injection** in `main.dart`, where the concrete services are "injected" into the `AhwaCubit`, making the system flexible and easy to test.
+
+---
+
+## 📸 Screenshots
+
+| Pending Orders Dashboard | Add New Order Screen | Daily Report Screen |
+|:------------------------:|:--------------------:|:-------------------:|
+| ![Dashboard Screen](./assets/dashboard.png) | ![Add Order Screen](./assets/add_order.png) | ![Report Screen](./assets/report.png) |
 
 ---
 
