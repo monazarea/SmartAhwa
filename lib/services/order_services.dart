@@ -6,7 +6,7 @@ abstract class IOrderService {
   List<Order> get pendingOrders;
   void addOrder({required String customerName, required Drink drink});
   void completeOrder(Order order);
-  List<Order> get allOrders; // هنحتاجها للتقرير
+  List<Order> get allOrders;
 }
 
 class OrderService implements IOrderService {
@@ -17,7 +17,7 @@ class OrderService implements IOrderService {
       _orders.where((order) => order.status == OrderStatus.pending).toList();
 
   @override
-  List<Order> get allOrders => List.unmodifiable(_orders); // نسخة للقراءة فقط
+  List<Order> get allOrders => List.unmodifiable(_orders);
 
   @override
   void addOrder({required String customerName, required Drink drink}) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubits/ahwa_cubit.dart';
-import '../models/drink.dart'; // تأكدي إن ده بيشاور على كلاس Drink البسيط الجديد
+import '../models/drink.dart';
 
 class AddOrderScreen extends StatefulWidget {
   const AddOrderScreen({super.key});
@@ -25,7 +25,6 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     'تلقيمة زيادة',
   ];
 
-  // المنيو بتاعنا
   final List<Drink> _availableDrinks = [
     Drink( "شاي",  10.0),
     Drink("قهوة تركي",  15.0),
@@ -47,21 +46,17 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
   }
 
   void _submitOrder() {
-    // 1. نتأكد إن الفورم سليم
     if (!_formKey.currentState!.validate()) {
       return;
     }
     _formKey.currentState!.save();
 
-    // 2. هنا التعديل الأساسي
-    // بننشئ نسخة جديدة من المشروب بالبيانات المحدثة (مع إضافة الملاحظات)
     final drinkWithOptions = Drink(
       _selectedDrink!.name,
       _selectedDrink!.price,
       notes: _notesController.text,
     );
 
-    // 3. بنبعت الأوردر للـ Cubit
     context.read<AhwaCubit>().addOrder(
       customerName: _customerName,
       drink: drinkWithOptions,
@@ -70,7 +65,6 @@ class _AddOrderScreenState extends State<AddOrderScreen> {
     Navigator.of(context).pop();
   }
 
-  // 4. لم نعد بحاجة لدالة _getDrinkWithNotes على الإطلاق! تم حذفها.
 
   void _addInstruction(String instruction) {
     final currentText = _notesController.text;

@@ -1,7 +1,6 @@
 import 'package:ahwago/services/order_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-// 1. هنعمل import للحزمة اللي ضفناها
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'cubits/ahwa_cubit.dart';
